@@ -17,6 +17,14 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    upvotes = models.ManyToManyField(User, related_name='post_upvotes', blank=True)
+    downvotes = models.ManyToManyField(User, related_name='post_downvotes', blank=True)
+
+    def total_upvotes(self):
+        return self.upvotes.count()
+    
+    def total_downvotes(self):
+        return self.downvotes.count()
     class Meta:
         ordering = ["-created_on"]
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -29,6 +29,8 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
+    user_upvoted = post.upvotes.filter(id=request.user.id).exists()
+    user_downvoted = post.downvotes.filter(id=request.user.id).exists()
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -51,6 +53,8 @@ def post_detail(request, slug):
         "comments": comments,
         "comment_count": comment_count,
         "comment_form": comment_form,
+        "user_upvoted": user_upvoted,
+        "user_downvoted": user_downvoted,
     },
 )
 
@@ -91,3 +95,25 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+def post_upvote(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.user.is_authenticated:
+        if post.upvotes.filter(id=request.user.id).exists():
+            post.upvotes.remove(request.user)
+        else:
+            post.upvotes.add(request.user)
+            post.downvotes.remove(request.user)
+
+    return redirect('post_detail', slug=slug)
+
+def post_downvote(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    if request.user.is_authenticated:
+        if post.downvotes.filter(id=request.user.id).exists():
+            post.downvotes.remove(request.user)
+        else:
+            post.downvotes.add(request.user)
+            post.upvotes.remove(request.user)
+
+    return redirect('post_detail', slug=slug)

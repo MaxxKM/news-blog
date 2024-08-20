@@ -31,6 +31,23 @@
             </div>
         </div>
     </div>
+      <!-- Displaying Upvotes and Downvotes -->
+      <div>
+        <form action="{% url 'post_upvote' post.slug %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="{% if user_upvoted %}voted{% endif %}">
+                Upvote ({{ post.total_upvotes }})
+            </button>
+        </form>
+        
+        <form action="{% url 'post_downvote' post.slug %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="{% if user_downvoted %}voted{% endif %}">
+                Downvote ({{ post.total_downvotes }})
+            </button>
+        </form>
+    </div>
+
       <!-- Displaying count of comments -->
   <div class="row">
     <div class="col-12">
