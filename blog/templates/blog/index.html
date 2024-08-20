@@ -2,58 +2,77 @@
 {% load static %}
 {% block content %}
 
-<!-- index.html content starts here -->
 <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-center">
 
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                    alt="placeholder image">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
-                                </div>
-                            </div>
+        <div class="col-12 mt-3">
+            {% for post in post_list %}
+            <div class="card mb-4 shadow-sm">
+                <div class="row g-0">
+                    <!-- Post Image -->
+                    <div class="col-md-4">
+                        <div class="image-container">
+                            {% if "placeholder" in post.featured_image.url %}
+                            <img class="img-fluid rounded-start" src="{% static 'images/default.jpg' %}"
+                                alt="placeholder image">
+                            {% else %}
+                            <img class="img-fluid rounded-start" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- Post Content -->
+                    <div class="col-md-8">
+                        <div class="card-body d-flex flex-column">
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
+                                <h3 class="card-title">{{ post.title }}</h3>
                             </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}}
-                            </p>
+                            <p class="card-text">{{ post.excerpt }}</p>
+                            <div class="mt-auto">
+                                <hr />
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <small class="text-muted">Author: {{ post.author }}</small><br>
+                                        <small class="text-muted">{{ post.created_on }}</small>
+                                    </div>
+                                    <!-- Vote Count -->
+                                    <div class="voting-container">
+                                        <form action="{% url 'post_upvote' post.slug %}" method="POST" class="upvote-form">
+                                            {% csrf_token %}
+                                            <button type="submit" class="vote-button">
+                                                <span class="arrow up-arrow">&#9650;</span>
+                                            </button>
+                                        </form>
+                                        <span class="vote-count">{{ post.total_upvotes }}</span>
+                                        <form action="{% url 'post_downvote' post.slug %}" method="POST" class="downvote-form">
+                                            {% csrf_token %}
+                                            <button type="submit" class="vote-button">
+                                                <span class="arrow down-arrow">&#9660;</span>
+                                            </button>
+                                        </form>
+                                        <span class="vote-count">{{ post.total_downvotes }}</span>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-
-            </div>
+            {% endfor %}
         </div>
     </div>
+    <!-- Pagination -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li>
+            <li class="page-item">
                 <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
             </li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+            </li>
             {% endif %}
         </ul>
     </nav>

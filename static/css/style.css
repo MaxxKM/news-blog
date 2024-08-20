@@ -1,182 +1,167 @@
+/* Dark Theme General Styles */
 body {
-    background-color: #F9FAFC;
+    background-color: #1A1A1B;
+    color: #D7DADC;
+    overflow-x: hidden;
 }
 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
+.navbar {
+    background-color: #272729;
+    box-shadow: none; /* Remove shadow for a flatter look */
 }
 
-.red-o {
-    color: #E84610;
+.navbar-brand {
+    color: #D7DADC;
 }
 
-.thin {
-    font-weight: 300;
+.nav-link {
+    color: #D7DADC;
 }
 
-.light-bg {
-    background-color: #fff;
+.nav-link.active {
+    color: #FF4500; /* Highlight active links with Reddit's orange */
 }
 
-.dark-bg {
-    background-color: #445261;
+.navbar-text {
+    color: #818384;
 }
 
-.main-bg {
-    background-color: #F9FAFC;
+.alert {
+    background-color: #272729;
+    color: #D7DADC;
+    border-color: #343536;
 }
 
+.alert .btn-close {
+    filter: invert(1);
+}
+
+.pagination {
+    border: 1rem;
+}
+
+.page-link {
+    color: #FFD700; /* Gold color for text */
+    background-color: #333; /* Dark background */
+    border: 1px solid #444; /* Subtle border */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.page-link:hover {
+    color: #FFF; /* White color on hover */
+    background-color: #555; /* Slightly lighter background on hover */
+    border-color: #666; /* Change border color on hover */
+    text-decoration: none;
+}
+
+.page-item.active .page-link {
+    color: #FFF;
+    background-color: #FFD700; /* Active button in gold */
+    border-color: #FFD700;
+}
+
+.page-item.disabled .page-link {
+    color: #777; /* Greyed out text for disabled button */
+    background-color: #222; /* Dark background for disabled button */
+    border-color: #444;
+    cursor: not-allowed;
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #272729;
+    color: #D7DADC;
+}
+
+.footer a {
+    color: #FF4500; /* Social media icons in orange */
+}
+
+.footer a:hover {
+    color: #FF8717; /* Lighter orange on hover */
+}
+
+/* Card Styles */
 .card {
-    border: none;
-    background-color: transparent;
+    background-color: #1A1A1B;
+    border: 1px solid #343536;
 }
 
-.image-container {
-    position: relative;
+.card-body {
+    color: #D7DADC;
 }
 
-.image-flash {
-    position: absolute;
-    bottom: 5%;
-    min-width: 30%;
-    left: -2px;
-    background-color: #188181;
+.container-fluid, .container {
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
-.scale {
-    width: 100%;
-    height: auto;
-}
-
-.author {
+.card-title {
     color: white;
-    margin: 4px;
-    text-transform: uppercase;
-}
-
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
+    text-decoration: none;
 }
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: inherit;
 }
 
-.post-link:hover,
-.page-link {
-    color: #E84610;
+.shadow-sm {
+    box-shadow: none !important;
 }
 
-.post-title {
-    margin-top: 10%;
-    margin-left: 5%;
-}
-
-.post-subtitle {
-    margin-left: 5%;
-    color: lightgray;
-}
-
+/* Buttons */
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
+    background-color: #FF4500;
     color: #fff;
+    border: none;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+    background-color: #FF8717;
+    color: #fff;
 }
 
+/* Links */
 .link {
-    color: #23BBBB;
+    color: #FF4500;
     text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: #FF8717;
     text-decoration: underline;
 }
 
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
-
-.faded {
-    color: rgb(172, 175, 175);
-}
-
-.approval {
-    color: rgb(222, 146, 168);
-}
-
+/* Voting Controls */
 .voting-container {
     display: flex;
     align-items: center;
 }
 
-.vote-button:focus {
+.vote-button {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 1.5rem;
-    color: #333;
+    color: #D7DADC;
+}
+
+.vote-button:focus {
+    outline: none;
 }
 
 .vote-count {
     margin: 0 10px;
-    font-size: 1.1rem;
-    color: #333;
+    font-size: 1.2rem;
+    color: #D7DADC;
 }
 
 .arrow {
@@ -185,17 +170,90 @@ body {
 }
 
 .up-arrow {
-    color: green;
+    color: #FF4500; /* Reddit Orange for upvotes */
 }
 
 .down-arrow {
-    color: red;
+    color: #7193FF; /* Light blue for downvotes */
 }
 
-.vote-button.voted .up.arrow {
-    color: #32CD31;
+.vote-button.voted .up-arrow {
+    color: #FF8717; /* Lighter orange when upvoted */
 }
 
-.vote-button.voted .up.arrow {
-    color: #FF6344
+.vote-button.voted .down-arrow {
+    color: #56A0D3; /* Lighter blue when downvoted */
+}
+
+/* Post Title and Subtitle */
+.post-title {
+    color: #D7DADC;
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: #818384;
+}
+
+/* Masthead */
+.masthead {
+    background-color: #272729;
+    color: white;
+}
+
+.masthead-text {
+    background-color: #1A1A1B;
+    color: #D7DADC;
+}
+
+.masthead-image:after {
+    background: #1A1A1B;
+}
+
+.comment-counter {
+    color: #D7DADC;
+}
+
+.comment-counter .comment-icon {
+    color: #FF4500;
+}
+
+/* Modal */
+.modal-content {
+    background-color: #1A1A1B;
+    color: #D7DADC;
+    border: 1px solid #343536;
+}
+
+.modal-header,
+.modal-footer {
+    border-color: #343536;
+}
+
+.btn-delete {
+    background-color: #FF4500;
+    color: #fff;
+}
+
+.btn-delete:hover,
+.btn-delete:active {
+    background-color: #FF8717;
+    color: #fff;
+}
+
+/* Custom scrollbar for dark mode (optional) */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #343536;
+    border-radius: 10px;
+    border: 3px solid #1A1A1B;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1A1A1B;
 }
