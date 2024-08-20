@@ -1,131 +1,207 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">News Blog</h1>
 
-Welcome Max Kelly Mahon,
+View the website [Here](https://news-blog-mkm-d126a4c289f0.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This is a Website that allows users to view, comment and upvote/downvote blogs.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+![](static/images/site.png)
 
-## Gitpod Reminders
+## User Experience (UX)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+-  ### User Stories
 
-`python3 -m http.server`
+   -  #### View paginated list of posts
+        1. As a site user, I can view a paginated list of posts so that I can select which post I want to view.
+        2. When a user opens the main page a list of posts is seen.
+        3. Then the user sees all post titles with pagination to choose what to read.
 
-A blue button should appear to click: _Make Public_,
+   -  #### Create Posts
+        1. Users can create a new post by filling out a title, content, and selecting a category.
+        2. The post will display the author's username, the time, and the date of posting.
+        3. The post should be visible to all users immediately after submission.
+   
+   -  #### Up/Down vote on posts
+        1. Users can upvote or downvote a post using buttons next to the post.
+        2. The total vote count should be updated immediately after a user casts their vote.
+        3. Users can only vote once per post (upvote or downvote).
 
-Another blue button should appear to click: _Open Browser_.
+   -  #### Comment on posts
+        1. Users can leave a comment on any post.
+        2. Comments are displayed below the post, with the newest comments at the top or bottom, depending on the site's design.
+        3. Each comment displays the username of the commenter, the time, and the date it was posted.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+   -  #### Account registration
+        1. Given an email a user can register an account.
+        2. Then the user can log in.
+        3. When the user is logged in they can comment.
 
-A blue button should appear to click: _Make Public_,
+   -  #### Modify or delete comment on a post
+        1. Given a logged in user, they can modify their comment.
+        2. Given a logged in user, they can delete their comment.
 
-Another blue button should appear to click: _Open Browser_.
+   -  #### Manage posts
+        1. Given a logged in user, they can create a blog post.
+        2. Given a logged in user, they can read a blog post.
+        3. Given a logged in user, they can update a blog post.
+        4. Given a logged in user, they can delete a blog post.
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+   -  #### Create drafts
+        1. Given a logged in user, they can save a draft blog post.
+        2. Then they can finish the content at a later time.
 
-To log into the Heroku toolbelt CLI:
+   -  #### Approve comments
+        1. Given a logged in user, they can approve a comment.
+        2. Given a logged in user, they can disapprove a comment.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+- ### Design
+  - #### Colour Scheme
+    - The two main colours used in this project are dark grey and white.
+  - #### Typography
+    - The two fonts used in this project are Roboto and Lato. Roboto is a clear and clean style of font that allows easy reading and looks clean. Lato is used in a similiar manner, but slightly different font to draw attention to other areas.
+  - #### Imagery
+    - The images used on this site are images that are used by the site users, to accompany their posts.
 
-### Connecting your Mongo database
+## Features
+  - #### Navigation Bar
+    - The Navigation bar is simple and clean. it allows users quick access to the home page, as well as letting them logout, login or register to the site.
+    ![Image of sites navigation bar](static/images/navbar.png)
+  - #### Footer
+    - Added social media links and icons to the footer. All links open in a new tab. This is an easy and visually pleasing way to have users gain access to your social media pages.
+    The icons make the aesthetic of the page nicer, rather than have words or links to click.
+    ![Image of sites footer](static/images/footer.png)
+  - #### Pagination
+    - The Pagination allows up to 6 posts per page. At the bottom of the page there are Next/Previous buttons that allow the user to switch between pages.
+    ![Image of sites pagination](static/images/pagination.png)
+  - #### Responsiveness
+    - Website is responsive to all screen sizes. This means that on each device the website looks clean but also gives the user all the information they need on the blog.
+    ![Image of sites responsiveness](static/images/phone.png)
+  - #### Accounts
+    - The accounts feature allows users to register to the site. It then allows them to login and out of their account. Their name will appear beside the posts they make and also the comments.
+    ![Image of sites logout](static/images/logout.png)
+    ![Image of sites login](static/images/login.png)
+    ![Image of sites registration](static/images/register.png)
+  - #### Voting
+    - The voting feature allows users to up or down vote each post, to express their opinion on it, which will help other users judge useful posts before they view it.
+    ![Image of sites scroll voting](static/images/vote1.png)
+    ![Image of sites scroll voting](static/images/vote.png)
+  - #### Comments
+    - The comments feature allows users to comment on posts. They can also delete or edit their comment. It will have to be approved by the admin first though.
+    ![Image of sites comments](static/images/comments.png)
+  
+## Technologies Used
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+- [Cloudinary](https://cloudinary.com/)
+- [Crispy Bootstrap](https://pypi.org/project/crispy-bootstrap5/)
+- [Gunicorn](https://gunicorn.org)
+- [Psycopg2](https://www.psycopg.org/docs/)
+- [Whitenoise](https://pypi.org/project/whitenoise/5.3.0/)
+- [Django](https://www.djangoproject.com/)
+- [DjangoAllAuth](https://docs.allauth.org/)
+- [DjangoCrispyForms](https://django-crispy-forms.readthedocs.io/en/latest/)
+- [DjangoSummerNote](https://pypi.org/project/django-summernote/)
 
-------
+### Languages used
 
-## Release History
+- [HTML5](https://en.wikipedia.org/wiki/HTML)
+- [CSS3](https://en.wikipedia.org/wiki/CSS)
+- [ES6](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](https://en.wikipedia.org/wiki/python)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Framesworks, Libraries & Programmes Used
 
-**June 18, 2024,** Add Mongo back into template
+1. [Google Fonts](https://fonts.google.com/)
+    Google Fonts was used to styles the font throughout the website.
+2. [Font Awesome](https://fontawesome.com/)
+    Font Awesome was used to add the icons for the social media links in the footer, as well as the burger icon in the navbar for smaller screens.
+3. [Git](https://git-scm.com)
+    Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub.
+4. [GitHub](https://github.com/)
+    GitHub was used to store the projects code after being pushed by Git.
+4. [Bootstrap](https://getbootstrap.com)
+    Bootstrap was used to build fast and responsive styling for the site.
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+## Testing
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+ - [W3C Markup Validator](https://validator.w3.org/)
+ - [W3C CSS VALDATOR](https://jigsaw.w3.org/css-validator/)
+ - [JSLint](https://www.jslint.com/)
+ - [PEP8](https://pep8ci.herokuapp.com/)
 
-**May 28 2024:** Fix Mongo and Links installs
+### Testing User Stories from User Experience (UX) Section
 
-**April 26 2024:** Update node version to 16
+ - #### First Time Visitor Goals
+   1. As a first time visitor, I want to understand and learn about the topic of the website.
+      1. When users open the site, they are greeted with a clean and simple first page. The navigation bar is easy to read and easy to navigate through the pages.
+      2. The main image is powerful yet clean. It is accompanied by small text with a black background for ease of reading, of a brief intro to the story.
+      3. Users can either scroll or click the button that will automatically bring them down to the next intro section.
+   2. As a first time visitor, I want to be able to easily navigate through the website and also have visual help with guidance of the website and topics.
+      1. The navigation bar is clean and has visual help to show users what pages they are currently on. If a user wants to navigate to a different page this is highlighted when they hover over the page link.
+      2. The navigation bar always shows each page so that users can always and easily go back to their previous page so they never feel trapped.
+      3. The forms sections is clean and easily readable. When customers fill out their details, the form will show them what is required when filling it out so they are never confused.  
+   3. As a first time visitor, I want to have reliable and trusted information about the topic at hand.
+      1. The information about the story is always accumpanied by famous images that will support the reliability of the site. 
+      2. All the information throughout the website has been gathered by multiple trusted sources to tell the story in short but precise text.
+  
+- #### Returning Visitor Goals
 
-**September 20 2023:** Update Python version to 3.9.17.
+   1. As a returning visitor, I want to find information about the history.
+      1. The about us section will provide users an insight of our motives and enthusiasm for history, that will give them an view of the passion behind the research and topics.
+      2. Users can sign up to a newsletter through the contact forms, allowing them to keep up to date on previous or new historical topics. 
+   2. As a returning visitor, I want to be able to contact the team behind the website and be able to follow up and any questions or queries I may have.
+      1. All social media links are shown in the footer, so that users can follow us on multiple platforms and reach out if needed or wanted.
+      2. Users can use the contact form to send us their details so that we can reach out and start up a conversation.
+      3. Users can submit feedback about the site and topics, or give suggestions on the next topic that will be covered.  
+   3. As a returning visitor, I want to find social media links to follow up on more information.
+      1. Users can find all social media accounts on the footer, to follow us on updates.
+      2. Users can find like minded people in the community for discussions. They can also give input on the future topics.
+      3. Customers have easy access to a newsletter that will be emailed to them frequently.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- #### Frequent Visitor Goals
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+   1. As a frequent user, I want to see if there is any new or updated information about this topic or new releases of events in history.
+      1. Through the newsletter, users will recieve all information and updates on new releases.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Further Testing 
+  - The website was viewed on multiple devices such as iphone 15, laptop, tablet, PC.
+  - All page links and buttons were tested to ensure they are correctly working and have the correct links.
+  - Family and Friends were sent links to the website to ensure no bugs were found on their own devices.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Known bugs
+  - Navigation bar was resizing itself throughout the project. This was fixed with the help of tutors, the code was not saving itself correctly but has been fixed.
+  - Forms were falling through the footer and extending the page at certain points.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+## Deployment
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Github pages
+The project was deployed with GitHub using these steps...
+  - Log in to Github and locate the GitHub repository 'CI-Project-1'
+  - At the top of the repository locate the 'Settings' button.
+  - Scroll down the settings page until you locate the 'GitHub Pages'.
+  - Under 'Source', select 'none' and select master 'branch'.
+  - The page will refresh
+  - Scroll back down and locate the published site link in the 'GitHub pages' section.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Preview Site Port
+I also deployed a preview of the site throughout the process through a local port.
+  - In codeanywhere I would select the terminal and write 'python3 -m https.server'
+  - I would select the 'Port' tab in the bottom right.
+  - I would select Port 8000 and click 'open in a new tab'.
+ 
+## Credits
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Code
+ - The navigation bar was followed along by [Code Institute's](https://codeinstitute.net/ie/) "Love Running" Project tutorials.
+ - The scroll button used for 'click to view more' was helped by [Reddit](https://www.reddit.com/r/csshelp/) CSS form, since I was having problems with the button scrolling too far 
+ past the section.   
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+ ### Content & Media
+  - All content was written by the developer, but helped with multiple sources (including the images) such as ... 
+    - [Wikipedia](https://en.wikipedia.org/wiki/Battle_of_Alesia)
+    - [Britannica](https://www.britannica.com/event/Battle-of-Alesia-52-BCE)
+    - [ImperiumRomanum](https://imperiumromanum.pl/en/battles/battle-of-alesia/)
+    - [ThoughtCo](https://www.thoughtco.com/gallic-wars-battle-of-alesia-2360869)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### Acknowledgements
+ - My mentor for continued help and feedback throughout the project.
+ - The Code Institute tutor support team for help with problems within the code.   
