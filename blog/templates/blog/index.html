@@ -17,7 +17,8 @@
                             <img class="img-fluid rounded-start" src="{% static 'images/default.jpg' %}"
                                 alt="placeholder image">
                             {% else %}
-                            <img class="img-fluid rounded-start" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
+                            <img class="img-fluid rounded-start" src="{{ post.featured_image.url }}"
+                                alt="{{ post.title }}">
                             {% endif %}
                         </div>
                     </div>
@@ -37,14 +38,16 @@
                                     </div>
                                     <!-- Vote Count -->
                                     <div class="voting-container">
-                                        <form action="{% url 'post_upvote' post.slug %}" method="POST" class="upvote-form">
+                                        <form action="{% url 'post_upvote' post.slug %}" method="POST"
+                                            class="upvote-form">
                                             {% csrf_token %}
                                             <button type="submit" class="vote-button">
                                                 <span class="arrow up-arrow">&#9650;</span>
                                             </button>
                                         </form>
                                         <span class="vote-count">{{ post.total_upvotes }}</span>
-                                        <form action="{% url 'post_downvote' post.slug %}" method="POST" class="downvote-form">
+                                        <form action="{% url 'post_downvote' post.slug %}" method="POST"
+                                            class="downvote-form">
                                             {% csrf_token %}
                                             <button type="submit" class="vote-button">
                                                 <span class="arrow down-arrow">&#9660;</span>
@@ -53,35 +56,35 @@
                                         <span class="vote-count">{{ post.total_downvotes }}</span>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
+        <!-- Pagination -->
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+                </li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </div>
-    <!-- Pagination -->
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
-            </li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-</div>
 
-<!-- index.html content ends here -->
-{% endblock %}
+    <!-- index.html content ends here -->
+    {% endblock %}
 
-{% block copyright %}
+    {% block copyright %}
     Copyright 2023 Max Kelly-Mahon
-{% endblock %}
+    {% endblock %}

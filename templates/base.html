@@ -10,7 +10,7 @@
 
 <head>
     <title>News Blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google Fonts CSS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -43,18 +43,22 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}"
+                            href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}"
+                            href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}"
+                            href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}"
+                            href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -98,10 +102,14 @@
         <div class="container text-center">
             <p class="mb-1">Made by Code Instituters</p>
             <p class="mb-0">Follow us:
-                <a href="https://www.facebook.com/" target="_blank" class="text-white ms-3"><i class="fab fa-facebook-square"></i></a>
-                <a href="https://www.twitter.com/" target="_blank" class="text-white ms-3"><i class="fab fa-twitter-square"></i></a>
-                <a href="https://www.instagram.com/" target="_blank" class="text-white ms-3"><i class="fab fa-instagram-square"></i></a>
-                <a href="https://www.youtube.com/"  target="_blank" class="text-white ms-3"><i class="fab fa-youtube-square"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" class="text-white ms-3"><i
+                        class="fab fa-facebook-square"></i></a>
+                <a href="https://www.twitter.com/" target="_blank" class="text-white ms-3"><i
+                        class="fab fa-twitter-square"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" class="text-white ms-3"><i
+                        class="fab fa-instagram-square"></i></a>
+                <a href="https://www.youtube.com/" target="_blank" class="text-white ms-3"><i
+                        class="fab fa-youtube-square"></i></a>
             </p>
         </div>
     </footer>
