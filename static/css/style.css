@@ -160,6 +160,42 @@ body {
     color: rgb(222, 146, 168);
 }
 
-.voted {
-    color: blue;
+.voting-container {
+    display: flex;
+    align-items: center;
+}
+
+.vote-button:focus {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.vote-count {
+    margin: 0 10px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.arrow {
+    display: inline-block;
+    user-select: none;
+}
+
+.up-arrow {
+    color: green;
+}
+
+.down-arrow {
+    color: red;
+}
+
+.vote-button.voted .up.arrow {
+    color: #32CD31;
+}
+
+.vote-button.voted .up.arrow {
+    color: #FF6344
 }

@@ -33,18 +33,20 @@
     </div>
       <!-- Displaying Upvotes and Downvotes -->
       <div>
-        <form action="{% url 'post_upvote' post.slug %}" method="POST">
+        <form action="{% url 'post_upvote' post.slug %}" method="POST" class="upvote-form">
             {% csrf_token %}
-            <button type="submit" class="{% if user_upvoted %}voted{% endif %}">
-                Upvote ({{ post.total_upvotes }})
+            <button type="submit" class="vote-button">
+              <span class="arrow up-arrow">&#9650;</span>
             </button>
+            <span class="voted-count">{{ post.total_upvotes }}</span>
         </form>
         
-        <form action="{% url 'post_downvote' post.slug %}" method="POST">
+        <form action="{% url 'post_downvote' post.slug %}" method="POST" class="downvote-form">
             {% csrf_token %}
-            <button type="submit" class="{% if user_downvoted %}voted{% endif %}">
-                Downvote ({{ post.total_downvotes }})
+            <button type="submit" class="vote-button">
+              <span class="arrow down-arrow">&#9660;</span>
             </button>
+            <span class="voted-count">{{ post.total_downvotes }}</span>
         </form>
     </div>
 
