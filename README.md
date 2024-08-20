@@ -129,7 +129,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
  - [PEP8](https://pep8ci.herokuapp.com/)
 
  - With the W3C Markup Validator, I am getting 2 errors saying I didn' close a certain div and main. However I have, I have ran the code through multiple other sources and it came back clean.
-    !(static/images/error.png)
+![](static/images/site.png)
 
 ### Testing User Stories from User Experience (UX) Section
 -  ### User Stories
