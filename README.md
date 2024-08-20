@@ -78,7 +78,7 @@ This is a Website that allows users to view, comment and upvote/downvote blogs.
     ![Image of sites responsiveness](static/images/phone.png)
   - #### Accounts
     - The accounts feature allows users to register to the site. It then allows them to login and out of their account. Their name will appear beside the posts they make and also the comments.
-    ![Image of sites logout](static/images/logout.png)
+    ![Image of sites logout](static/images/signout.png)
     ![Image of sites login](static/images/login.png)
     ![Image of sites registration](static/images/register.png)
   - #### Voting
