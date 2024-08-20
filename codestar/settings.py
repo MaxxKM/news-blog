@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
 import dj_database_url
+
 if os.path.isfile('env.py'):
     import env
 
@@ -29,11 +30,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-@@qx^ju+9u_ciq249g-b_d-ltj@_2sio!32d&4n86(8a8@r8su'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['8000-maxxkm-newsblog-iy0xc8eerix.ws-eu115.gitpod.io'
-,'.herokuapp.com']
-
+ALLOWED_HOSTS = [
+    '8000-maxxkm-newsblog-iy0xc8eerix.ws-eu115.gitpod.io',
+    '.herokuapp.com'
+]
 
 # Application definition
 
@@ -97,12 +99,12 @@ WSGI_APPLICATION = 'codestar.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#   DATABASES = {
-#       'default': {
-#           'ENGINE': 'django.db.backends.sqlite3',
-#           'NAME': BASE_DIR / 'db.sqlite3',
-#       }
-#   }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
@@ -146,7 +148,7 @@ USE_I18N = True
 USE_TZ = True
 
 MESSAGE_TAGS = {
-    messages.SUCCESS: 'alert-sucess',
+    messages.SUCCESS: 'alert-success',
     messages.ERROR: 'alert-danger',
 }
 
@@ -154,7 +156,7 @@ MESSAGE_TAGS = {
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
