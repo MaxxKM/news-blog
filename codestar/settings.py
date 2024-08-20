@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -28,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'django-insecure-@@qx^ju+9u_ciq249g-b_d-ltj@_2sio!32d&4n86(8a8@r8su'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-maxxkm-newsblog-iy0xc8eerix.ws-eu115.gitpod.io'
 ,'.herokuapp.com']
@@ -144,6 +145,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+MESSAGE_TAGS = {
+    messages.SUCCESS: 'alert-sucess',
+    messages.ERROR: 'alert-danger',
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
